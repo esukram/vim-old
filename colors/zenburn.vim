@@ -1,0 +1,1 @@
+../base/colorscheme-zenburn/colors/zenburn.vim
