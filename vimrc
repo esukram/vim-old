@@ -127,3 +127,9 @@ map <silent> <c-l> :silent nohl<cr>
 " toggle paste mode
 set pastetoggle=<F8>
 
+""""""""""""""""
+" plugins
+""""""""""""""""
+" enable GitGutter https://github.com/airblade/vim-gitgutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_highlight_lines = 1
