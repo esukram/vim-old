@@ -115,14 +115,14 @@ au FocusLost * :wa
 """"""""""""""""
 " key bindings "
 """"""""""""""""
-" use crtl+n for new tab
-map <silent> <c-n> :tabnew<cr>
-"
-" use crtl+w for close tab
-map <silent> <c-w> :tabclose<cr>
-
 " hide matched patterns with ctrl-l
 map <silent> <c-l> :silent nohl<cr>
+
+" use crtl+n for new tab
+map <silent> <c-n> :tabnew<cr>
+
+" use crtl+w for close tab
+map <silent> <c-w> :tabclose<cr>
 
 " toggle paste mode
 set pastetoggle=<F8>
@@ -130,6 +130,8 @@ set pastetoggle=<F8>
 """"""""""""""""
 " plugins
 """"""""""""""""
-" enable GitGutter https://github.com/airblade/vim-gitgutter
+" GitGutter https://github.com/airblade/vim-gitgutter
+" enable plugin on default
 let g:gitgutter_enabled = 1
+" highlight (background) changed lines
 let g:gitgutter_highlight_lines = 1
