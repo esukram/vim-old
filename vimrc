@@ -136,8 +136,6 @@ set pastetoggle=<F8>
 " GitGutter https://github.com/airblade/vim-gitgutter
 " enable plugin on default
 let g:gitgutter_enabled = 1
-" highlight (background) changed lines
-let g:gitgutter_highlight_lines = 1
 
 " NERDTree https://github.com/scrooloose/nerdtree
 let NERDTreeWinPos = 'right'
