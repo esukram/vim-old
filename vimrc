@@ -73,6 +73,32 @@ set foldlevelstart=1
 " do not fold less than 10 lines
 set foldminlines=5
 
+" always show statusline
+set laststatus=2
+
+" clean statusline
+set statusline=""
+
+" get modified flag
+set statusline+=%m
+" get filename
+" set statusline+=%(\ %f%)
+" get current tag from tag list
+" display tag list only if tag list window is shown
+set statusline+=%{(exists('loaded_taglist')&&bufwinnr(g:TagList_title)!=-1)?\"\ [\".Tlist_Get_Tag_Prototype_By_Line(expand('%'),line('.')).\"]\ \":'no\ tags\ '}
+" display parsing error
+set statusline+=%{\ SyntasticStatuslineFlag()}
+" get [RO] flag
+set statusline+=%(\ %r%)
+" seperate between right- and left-aligned
+set statusline+=%=
+" get file encoding
+set statusline+=%{\"[\".(&fenc==\"\"?&enc:&fenc).\"]\"}
+" get filetype
+set statusline+=%(\ %*%y%*%)
+" get hex and dec ascii values
+set statusline+=%(\ 0x%-3B\|%-3b\ %-3l,%-3c\ %P%)
+
 " set 256 color mode
 set t_Co=256
 
@@ -115,17 +141,26 @@ au FocusLost * :wa
 """"""""""""""""
 " key bindings "
 """"""""""""""""
+" use crtl+f for toggle NERDTree
+map <silent> <c-f> :NERDTreeToggle<cr>
+
 " hide matched patterns with ctrl-l
 map <silent> <c-l> :silent nohl<cr>
 
 " use crtl+n for new tab
 map <silent> <c-n> :tabnew<cr>
 
-" use crtl+t for toggle NERDTree
-map <silent> <c-t> :NERDTreeToggle<cr>
+" use crtl+t for toggle Taglist
+map <silent> <c-t> :TlistToggle<cr>
 
 " use crtl+w for close tab
 map <silent> <c-w> :tabclose<cr>
+
+" toggle Taglist tab
+nnoremap <silent> <F4> :TlistToggle<CR><CR>
+
+" toggle NERDTree tab
+nnoremap <silent> <F5> :NERDTreeToggle<CR><CR>
 
 " toggle paste mode
 set pastetoggle=<F8>
@@ -138,4 +173,21 @@ set pastetoggle=<F8>
 let g:gitgutter_enabled = 1
 
 " NERDTree https://github.com/scrooloose/nerdtree
+" position nerd tree right - since Treelist is on left side
 let NERDTreeWinPos = 'right'
+" use a smaller tab size
+let NERDTreeWinSize = 25
+
+" taglist http://www.vim.org/scripts/script.php?script_id=273
+" exit vi even taglist is open
+let Tlist_Exit_OnlyWindow = 1
+" close fold in taglist
+let Tlist_File_Fold_Auto_Close = 1
+" automatically update the taglist window to display tags for newly edited files
+let Tlist_Auto_Update = 1
+" automatically highlight the current tag
+let Tlist_Auto_Highlight_Tag = 1
+" sort taglist by names
+let Tlist_Sort_Type = "name"
+" use smaller Tlist width
+let Tlist_WinWidth = 25
