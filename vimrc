@@ -121,6 +121,9 @@ map <silent> <c-l> :silent nohl<cr>
 " use crtl+n for new tab
 map <silent> <c-n> :tabnew<cr>
 
+" use crtl+t for toggle NERDTree
+map <silent> <c-t> :NERDTreeToggle<cr>
+
 " use crtl+w for close tab
 map <silent> <c-w> :tabclose<cr>
 
@@ -135,3 +138,6 @@ set pastetoggle=<F8>
 let g:gitgutter_enabled = 1
 " highlight (background) changed lines
 let g:gitgutter_highlight_lines = 1
+
+" NERDTree https://github.com/scrooloose/nerdtree
+let NERDTreeWinPos = 'right'
